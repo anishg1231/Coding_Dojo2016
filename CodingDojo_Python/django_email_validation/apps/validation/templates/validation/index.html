@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Email Validation</title>
+  </head>
+  <body>
+    {% if messages %}
+    {% for message in messages %}
+    alert(message);
+    {% endfor %}
+    {% endif %}
+
+    <h1>Email Validation</h1>
+    <form action="/email" method="post">
+      {% csrf_token %}
+      Email Address:  <input type="email" name= "email" value="">
+      <br><input type="submit" value="submit"><br>
+    </form>
+
+    <h2>Email Address Entered:</h2>
+    <table>
+      {% for email in emails %}
+      <tr>
+        <td>{{email.email}}</td>
+        <td>{{email.created_at}}</td>
+        <td><a href="/delete/{{email.id}}">Remove</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+  </body>
+</html>

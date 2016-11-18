@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+    <h2>Welcome, {{request.session.user_name}}!</h2>
+
+    <h4>Quotable Quotes</h4>
+    <table>
+      {% for quote in quotes %}
+      <tr>
+        <td>{{quote.messages}}</td>
+        <td>{{quote.quoted_by}}</td>
+        <td>
+          Posted By: <a href="/show/{{quote.id}}">{{quote.User_id.first_name}}</a>
+        </td>
+        <td><a href="/favorite/{{quote.id}}">Add to My List</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h4>Your Favorites</h4>
+    <table>
+      {% for favorite in myquotes %}
+      <tr>
+        <td>{{favorite.Quotes_id.messages}}</td>
+        <td>{{favorite.quote_by}}</td>
+        <td>Posted By:{{favorite.User_id.first_name}}</td>
+        <td><a href="/destroy/{{favorite.id}}">Remove from My List</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h4>Contribute a Quote:</h4>
+    <form action="/create" method="post">
+      {% csrf_token %}
+      Quoted By:  <input type="text" name="quoted_by"><br>
+      Message: <br> <textarea name="messages" rows="8" cols="40"></textarea><br>
+      {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <button>Submit</button>
+    </form>
+  </body>
+</html>
