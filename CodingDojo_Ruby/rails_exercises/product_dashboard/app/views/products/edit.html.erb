@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Page</h1>
+    <form action="/products/<%= @product.id%>" method="post">
+      <input type="hidden"name="_method"value="patch">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+      <label>Name:</label><br>
+      <input type="text" name="name" value="<%= @product.name %>"><br>
+
+      <label>Description</label><br>
+      <input type="text" name="description" value="<%= @product.description %>"><br>
+
+      <label>Price:</label><br>
+      <input type="text" name="pricing" value="<%= @product.pricing %>"><br>
+
+      <input type="submit" value="Update">
+    </form>
+    <a href="/">Back</a>
+  </body>
+</html>
