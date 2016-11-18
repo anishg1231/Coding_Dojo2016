@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{pet.name}}</title>
+  </head>
+  <body>
+    <form action="/pets/update/{{pet.id}}" method="post">
+      {% csrf_token %}
+      Name: <br> <input type='text' name="name" value="{{pet.name}}"><br>
+      Description: <br> <textarea name="description">{{pet.description}}</textarea><br>
+      Breed: <br> <input type='text' name="breed" value="{{pet.breed}}"><br>
+      <button>Update</button>
+    </form>
+    <a href="/pets">Back</a>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokes</title>
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+    <h1>Welcome, {{request.session.name}}!</h1>
+    <p> 3 people poked you</p>
+    <li>Michael poked you 72 times</li>
+    <li>Damon poked you 15 times</li>
+    <li>Oliver poked you 8 times</li>
+{{pokes}}
+    <h3>People you may want to poke:</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Alias</th>
+        <th>Email Address</th>
+        <th>Poke History</th>
+        <th>Action</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.alias}}</td>
+        <td>{{user.email}}</td>
+        <td>
+        <form action="/create/{{user.id}}" method="post">
+          {% csrf_token %}
+          <button>Poke</button>
+        </form>
+      </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

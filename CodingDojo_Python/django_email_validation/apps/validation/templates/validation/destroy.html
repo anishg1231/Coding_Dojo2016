@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>{{email.email}}</h2>
+    <h2>{{email.created_at}}</h2>
+    <h1>Confirm if you want to delete email address.</h1>
+    <button><a href="/">No</a></button>
+    <form action="/yes/{{email.id}}" method="post">
+      {% csrf_token %}
+      <button>Yes</button>
+    </form>
+  </body>
+</html>
