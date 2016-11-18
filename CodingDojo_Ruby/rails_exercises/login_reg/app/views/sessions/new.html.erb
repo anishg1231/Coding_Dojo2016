@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+      <label>Email:</label><br>
+      <input type="email" name="email"><br>
+
+      <label>Password:</label><br>
+      <input type="password" name="password"><br>
+
+      <input type="submit" value="Login">
+    </form>
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |err| %>
+        <p><%= err %></p>
+      <% end %>
+    <% end %>
+    
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/sessions/new">Logout</a>
+    <h2>Baby Faced Assasin</h2>
+    <label>New Secret</label><br>
+    <form action="/secrets" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <textarea name="new_secret" rows="8" cols="40"></textarea><br>
+      <input type="submit" value="Create Secret">
+    </form><br>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Secrets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@user.secrets.each do |user_messages| %>
+        <tr>
+          <td><%= user_messages.messages %></td>
+          <td>
+            <a href="/secrets/<%= user_messages.id %>" data-method='delete'>Delete</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Secrets Liked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@user.likes.each do |like|%>
+        <tr>
+          <td><%=like.secret.messages%></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </body>
+</html>
