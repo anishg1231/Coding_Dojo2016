@@ -1,0 +1,23 @@
+<h1>create user</h1>
+<div ng-controller = 'createController'>
+  First name: <input type="text" ng-model = 'newUser.f_name'><br>
+  Last Name:  <input type="text" ng-model = 'newUser.l_name'><br>
+  Language:  <input type="text" ng-model = 'newUser.language'><br>
+  <input type="submit" value="Create User" ng-click = 'addUser()'><br>
+  <table>
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Language</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'user in allUser'>
+        <td>{{user.f_name}}</td>
+        <td>{{user.l_name}}</td>
+        <td>{{user.language}}</td>
+        <td><a href="#/create" ng-click = 'delete()'>Delete User</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

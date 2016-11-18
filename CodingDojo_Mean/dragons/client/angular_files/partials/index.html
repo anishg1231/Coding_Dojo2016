@@ -1,0 +1,41 @@
+<!-- <a href="#/create">Create</a> -->
+<div ng-controller = 'DragonsController as DC' ng-init = 'DC.getDragons()'>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">All Dragons</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/create">Create</a></li>
+      </ul>
+    </div>
+  </nav>
+  <table>
+    <thead>
+      <tr>
+        <th data-field="id">Dragon Name</th>
+        <th data-field="name">Dragon Color</th>
+        <th data-field="price">Dragon Element</th>
+        <th data-field="price">Dragon Moves</th>
+        <th data-field="price">Dragon Attributes</th>
+        <th data-field="actions">Dragon Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'dragons in DC.dragons'>
+        <td>{{dragons.name}}</td>
+        <td>{{dragons.color}}</td>
+        <td>{{dragons.element}}</td>
+        <td>{{dragons.moves}}</td>
+        <td><ul ng-repeat = '(key,value) in dragons.atrributes'>
+          <li><span ng-bind = 'key'></span> - <span ng-bind = 'value'></span></li>
+        </ul></td>
+        <td>
+          <a href="#/dragons">Delete</a>
+          <a href="#/dragons/edit/{{dragons._id}}">Edit</a>
+          <a href="#/dragons/show/{{dragons._id}}">Show</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  {{DC.dragons}}
+</div>

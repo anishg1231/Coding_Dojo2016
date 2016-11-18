@@ -1,0 +1,17 @@
+{
+  "name": "angular_route",
+  "homepage": "https://github.com/anishg1231/ChiDojo-Python-Sept",
+  "authors": [
+    "Anish Gheewala <agheewala1231@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

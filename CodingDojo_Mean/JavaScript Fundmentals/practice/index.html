@@ -1,0 +1,82 @@
+<script type="text/javascript">
+// var arr= [1,2,3,4,5,6,7,8,9,10]
+// function filter(arr,itter,callback) {
+//   console.log('in filter');
+//   console.log(callback);
+//   newarr = []
+//   for (var i = 0; i < array.length; i++) {
+//     if (callback(arr[i], itter)) {
+//       newArr.push(arr[i])
+//     }
+//   }
+//   console.log(newArr);
+//   return newArr
+//   }
+//
+//   })
+
+  var _ = {
+   map: function(arr, callback) {
+     for (var i = 0; i < arr.length; i++) {
+      arr[i] = callback(arr[i]) {
+       }
+     }
+   },
+   reduce: function(arr, callback, start) {
+     var sum = start
+     for (var i = 0; i < arr.length; i++) {
+       sum = callback(sum, arr[i])
+     }
+     console.log(sum);
+     return sum
+   },
+
+   find: function(arr,callback) {
+     for (var i = 0; i < arr.length; i++) {
+       if (callback(arr[i])) {
+         console.log(arr[i]);
+         return arr[i]
+       }
+     }
+   },
+
+   filter: function(arr, callback) {
+     newArr = []
+     for (var i = 0; i < arr.length; i++) {
+       if (callback(arr[i])) {
+         newArr.push(arr[i])
+       }
+     }
+     return newArr
+   },
+
+   reject: function(arr, callback) {
+     newArr = []
+     for (var i = 0; i < arr.length; i++) {
+       if (callback(arr[i]) == false) {
+         newArr.push(arr[i])
+       }
+     }
+     console.log(newArr);
+     return newArr
+   }
+ }
+ _.filter([1,2,3,4,5,6], function (num) {
+   return num % 2 == 0
+ })
+// you just created a library with 5 methods!
+_.reject([1,2,3,4,5,6], function (num) {
+  return num % 2 == 0
+})
+
+var even = _.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+// => 2
+
+var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
+// => 6
+
+_.map([1, 2, 3], function(num){ return num * 3; });
+// => [3, 6, 9]
+
+
+</script>

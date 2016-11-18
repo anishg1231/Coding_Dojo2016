@@ -1,0 +1,29 @@
+<div ng-controller = 'PollController as PC' ng-init = 'PC.getPolls()'>
+  {{PC}}
+  <a href="#/create">Create a New Poll</a>  |   <a href="#">Logout</a>
+  <h2>Current Polls:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Survey Question</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'polls in PC.polls'>
+        {{polls}}
+        <td>{{polls._user.name}}</td>
+        <td>
+          <a href="#/polls/update/:poll_id'" ng-click = 'PC.votePoll()' >{{polls.question}}</a>
+        </td>
+        <td>
+          {{polls.timestamp}}
+        </td>
+        <td><a href="#">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

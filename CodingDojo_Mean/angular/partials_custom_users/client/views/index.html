@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app ='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="bower_components/angular-route/angular-route.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    console.log();
+    var myApp = angular.module('myApp', ['ngRoute']);
+    myApp.config(function($routeProvider) {
+      $routeProvider
+      .when('/',{
+        templateUrl: 'partials/user_list.html',
+      })
+      .when('/list', {
+        templateUrl: 'partials/user_list.html',
+      })
+      .when('/create', {
+        templateUrl: 'partials/create_user.html',
+      })
+      .otherwise({
+        redirectTo: '/'
+      })
+    });
+
+    ///USER controller
+
+    myApp.controller('createController', function ($scope, userFactory) {
+      console.log('loaded controller');
+      $scope.allUser = []
+
+      $scope.addUser = function () {
+        console.log('click');
+        userFactory.addUser($scope.newUser)
+        $scope.newUser = '';
+      }
+      userFactory.getUser(function (result) {
+        $scope.allUser =  result
+      })
+      $scope.delete = function (idx) {
+        userFactory.delete($scope.newUser)
+      }
+    })
+
+    ///USER FACTORY///
+    myApp.factory('userFactory', function () {
+      var factory = {};
+      var users = [];
+
+      factory.addUser = function(user) {
+        users.push(user)
+        console.log(users);
+      }
+
+      factory.getUser = function (callback) {
+        callback(users)
+      }
+
+      factory.delete = function (idx) {
+        users.splice(idx,1)
+      }
+
+
+
+      return factory
+    })
+
+    </script>
+  </head>
+  <body>
+    <a href="#/create">Customize Users</a> | <a href="#/list">User List</a>
+    <h1>Orders Controller</h1>
+    <div ng-view = ''>
+
+    </div>
+
+  </body>
+</html>

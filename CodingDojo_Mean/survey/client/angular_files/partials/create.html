@@ -1,0 +1,42 @@
+<div ng-controller = 'PollController as PC'>
+  {{PC.question}}
+  <a href="#/polls">Cancel</a>
+  <h3>Put the question and options here:</h3>
+  <div >
+    <form name='questionForm'>
+      Question: <input type="text" name="question" ng-model='PC.newPoll.question' ng-minlength="8" ng-maxlength="256" required><br>
+      Option 1: <input type="text" name="option1" ng-model='PC.newPoll.option1' ng-minlength= '3' ng-maxlength='25' required><br>
+      Option 2: <input type="text" name="option2" ng-model='PC.newPoll.option2' ng-minlength= '3' ng-maxlength='25' required><br>
+      Option 3: <input type="text" name="option3" ng-model='PC.newPoll.option3' ng-minlength= '3' ng-maxlength='25' required><br>
+      Option 4: <input type="text" name="option4" ng-model='PC.newPoll.option4' ng-minlength= '3' ng-maxlength='25' required><br>
+      <button ng-click='PC.createPoll()' ng-disabled='questionForm.$invalid'>Create Poll</button>
+    </form>
+
+    <div ng-messages="questionForm.question.$error" style="color:maroon" role="alert" ng-if='questionForm.question.$touched'>
+        <div ng-message="required">You did not enter a Question</div>
+        <div ng-message="minlength">Your Name is too short</div>
+        <div ng-message="maxlength">Your Name is too long</div>
+    </div>
+    <div ng-messages="questionForm.option1.$error" style="color:maroon" role="alert" ng-if='questionForm.option1.$touched'>
+        <div ng-message="required">You did not enter a Option 1</div>
+        <div ng-message="minlength">Your Name is too short</div>
+        <div ng-message="maxlength">Your Name is too long</div>
+    </div>
+    <div ng-messages="questionForm.option2.$error" style="color:maroon" role="alert" ng-if='questionForm.option2.$touched'>
+        <div ng-message="required">You did not enter a Option 2</div>
+        <div ng-message="minlength">Your Name is too short</div>
+        <div ng-message="maxlength">Your Name is too long</div>
+    </div>
+    <div ng-messages="questionForm.option3.$error" style="color:maroon" role="alert" ng-if='questionForm.option3.$touched'>
+        <div ng-message="required">You did not enter a Option 3</div>
+        <div ng-message="minlength">Your Name is too short</div>
+        <div ng-message="maxlength">Your Name is too long</div>
+    </div>
+    <div ng-messages="questionForm.option4.$error" style="color:maroon" role="alert" ng-if='questionForm.option4.$touched'>
+        <div ng-message="required">You did not enter a Option 4</div>
+        <div ng-message="minlength">Your Name is too short</div>
+        <div ng-message="maxlength">Your Name is too long</div>
+    </div>
+  </div>
+
+</div>

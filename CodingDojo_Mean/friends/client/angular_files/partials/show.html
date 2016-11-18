@@ -1,0 +1,19 @@
+<div ng-controller = 'newController as NC'>
+  {{ NC.friend }}
+  <h1>hello</h1>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Show</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      <td>{{NC.newFriend.f_name}} {{NC.newFriend.l_name}}</td>
+      <td><a href="#/show">Show</a></td>
+      <td><a href="#/edit">Edit</a></td>
+      <td><a href="#/delete">Delete</a></td>
+    </tbody>
+  </table>
+
+</div>

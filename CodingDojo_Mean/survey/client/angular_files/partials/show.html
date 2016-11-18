@@ -1,0 +1,26 @@
+<div ng-controller = 'PollController as PC'>
+  {{PC}}
+  <a href="#/polls">Go to Polls</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Current Count of Votes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'vote in PC.polls'>
+        <td>{{vote.option1}}</td>
+        <td>{{vote.option2}}</td>>
+        <td>{{vote.option3}}</td>
+        <td>{{vote.option4}}</td>
+        <td></td>
+        <td>
+          <button ng-click = 'PC.voteCount()' ></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

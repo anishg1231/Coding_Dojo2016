@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app='angular_app'>
+<head>
+  <meta charset="utf-8">
+  <title>Building our first Angular page</title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript">
+
+  var app = angular.module('angular_app', []);
+  app.controller('myController', ['$scope', function($scope){ //printController will show the current $scope
+    $scope.myName = 'Anish Gheewala';
+    $scope.myFavoriteLanguage = 'JavaScript';
+    $scope.myFavoriteLanguage = 'Angular';
+  }]);
+  </script>
+</head>
+<body>
+  <div ng-controller = 'myController'>
+    <p>
+      Hi, my name is {{myName}}
+    </p>
+  </div>
+</body>
+</html>

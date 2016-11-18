@@ -1,0 +1,12 @@
+<div ng-controller = 'usersController as UC'>
+  {{UC}}
+  <h1>Register</h1>
+  <form>
+    First Name: <input type="text" name="f_name" ng-model = 'UC.users.f_name'><br>
+    Last Name:  <input type="text" name="l_name" ng-model = 'UC.users.l_name'><br>
+    Email:  <input type="email" name="email" ng-model = 'UC.users.email'><br>
+    Password: <input type="text" name="password" ng-model = 'UC.users.password'><br>
+    <button ng - click = 'UC.register()'>Register</button>
+  </form>
+
+</div>

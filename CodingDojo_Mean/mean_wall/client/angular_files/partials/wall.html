@@ -1,0 +1,30 @@
+<div ng-controller = 'messageController as MC'>
+  <h3>Welcome Someone</h3>  | <button>Signout</button>
+  <h1>Full Mean Wall</h1>
+
+  <form name = messageForm>
+    Post a Message: <textarea name="name" rows="8" cols="40" ng-model = 'MC.' ng-minlength = '2' ng-maxlength = '256' required></textarea>
+    <button ng-click = 'MC.post()' ng-disabled  = 'messageForm.$invalid'>Post a Message</button>
+  </form>
+
+  <div ng-messages = 'messageForm.name.$error' ng-if = 'messageForm.name.$touched'>
+    <div ng-message = 'required'>Your message is too short</div>
+    <div ng-message = 'maxlength'>Your message is too long</div>
+  </div>
+
+  <div>
+    <h2>Name:</h2>
+    <h2>Message:</h2>
+  </div>
+
+  <!-- <div>
+    <h4>Name:</h4>
+    <h4>Comment:</h4>
+  </div>
+    <form>
+    Name: <input type="text"><br>
+    Comment: <br> <textarea name="comment" rows="8" cols="40"></textarea><br>
+    <button>Post a Comment</button>
+    </form> -->
+
+</div>

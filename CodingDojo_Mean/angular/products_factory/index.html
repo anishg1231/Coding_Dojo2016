@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app = 'product_app'>
+  <head>
+    <meta charset="utf-8">
+    <title>Products with a Factory</title>
+  </head>
+  <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    console.log(angular);
+    var app = angular.module('product_app',[]);
+    app.controller('productController', function ($scope) {
+      $scope.products = []
+      $scope.addproducts = function () {
+        console.log('click me');
+        console.log($scope.newProduct);
+        $scope.product.push($scope.newProduct)
+        $scope.newProduct = {}
+      }
+    })
+  </script>
+
+  <body ng-controller = 'productController'>
+    <h1>Products Controller</h1>
+    <form>
+      Product Name: <input type="text" ng-model = 'newProduct.p_name'><br>
+      Product Price:  <input type="text" ng-model = 'newProduct.p_price'><br>
+      <input type="submit" value="Add Product" ng-click = 'addproducts()'><br>
+    </form>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr ng - repeat = 'product in products'>
+          <td>{{product.p_name}}</td>
+          <td>{{product.p_price}}</td>
+          <td><a href="">Delete Product</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
