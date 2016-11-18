@@ -1,0 +1,20 @@
+<div>
+  <form action="/surveys" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    Your Name:  <input type="text" name="survey[name]" ><br>
+    Dojo Location:  <select name = "location">
+      <option value="mountain view" >Moutain View</option>
+      <option value="chicago">Chicago</option>
+      <option value="blahblah">Blahblah</option>
+      <option value="something">Something</option>
+    </select><br>
+    Favorite Language:  <select name = "language">
+      <option value="Javascript" >Javascript</option>
+      <option value="ruby">Ruby</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+    </select><br>
+    Comments (optional) <br> <textarea name="comment" rows="8" cols="40"></textarea>
+    <input type="submit" value="Create">
+  </form>
+</div>

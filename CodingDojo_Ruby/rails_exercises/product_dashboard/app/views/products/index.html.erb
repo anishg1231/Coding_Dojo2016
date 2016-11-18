@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Listing Products</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name%></td>
+          <td><%= product.description%></td>
+          <td><%= product.pricing%></td>
+          <td>
+            <a href="/products/<%= product.id%>">Show</a> |
+            <a href="/products/<%= product.id%>/edit">Edit</a>
+
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="/products/new"> Add New Product</a>
+  </body>
+</html>

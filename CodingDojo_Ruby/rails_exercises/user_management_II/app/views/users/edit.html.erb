@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Users</h1>
+
+    <form action="/users/<%= @user.id%>" method="post">
+      <input type="hidden"name="_method"value="patch">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+      <label>First Name:</label><br>
+      <input type="text" name="first_name" value="<%= @user.first_name %>" ><br>
+      <label>Last Name:</label><br>
+      <input type="text" name="last_name" value="<%= @user.last_name %>" ><br>
+      <label>Email:</label><br>
+      <input type="email" name="email_address" value="<%= @user.email_address %>" ><br>
+      <label>Password:</label><br>
+      <input type="password" name="password" value="<%= @user.password %>" ><br>
+
+      <input type="submit" value="Update">
+    </form>
+    <!-- <% if flash[:errors] %>
+      <% flash[:errors].each do |err| %>
+        <p style="color:red"> <%= err %> </p>
+      <% end %>
+    <% end %> -->
+
+    <a href="/">Back</a>
+  </body>
+</html>
