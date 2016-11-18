@@ -1,0 +1,39 @@
+<div ng-controller = 'DragonsController as DC'>
+  {{DC}}
+  {{DC}}
+  {{DC}}
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Edit the Dragon</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Create</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="first_name" type="text" class="validate" ng-model = 'DC.dragons.name' ng-value = 'DC.dragons.name'>
+        <!-- <label for="first_name">Dragon Name</label> -->
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate" ng-model = 'DC.dragons.color' ng-value = 'DC.dragons.color'>
+        <!-- <label for="last_name">Dragon Color</label> -->
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate" ng-model = 'DC.dragons.element' ng-value = 'DC.dragons.element'>
+        <!-- <label for="last_name">Element</label> -->
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate" ng-model = 'DC.dragons.moves' ng-value = 'DC.dragons.moves'>
+        <!-- <label for="last_name">Moves</label> -->
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate" ng-model = 'DC.dragons.attributes' ng-value = 'DC.dragons.attributes'>
+        <!-- <label for="last_name">Attributes</label> -->
+      </div>
+    </div>
+    <button ng-click = 'DC.editDragon()'>Update Dragons </button>
+  </form>
+</div>

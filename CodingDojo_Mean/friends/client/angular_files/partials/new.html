@@ -1,0 +1,9 @@
+<div ng-controller = 'newController as NC'>
+  <h1>Add new Friends</h1>
+    {{NC.newFriend.f_name}}
+    <form>
+      Friend's First Name: <input type="text" name="f_name" ng-model = 'NC.newFriend.f_name'>
+      Friends's Last Name: <input type="text" name="l_name" ng-model = 'NC.newFriend.l_name'>
+      <input type="submit" value="Create Friend" ng-click = 'NC.create()'>
+    </form>
+</div>

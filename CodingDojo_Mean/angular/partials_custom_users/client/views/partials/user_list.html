@@ -1,0 +1,17 @@
+<h1>user list</h1>
+<div ng-controller = 'createController'>
+  <table>
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Language</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat = 'user in allUser'>
+        <td>{{user.f_name}}</td>
+        <td>{{user.l_name}}</td>
+        <td>{{user.language}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

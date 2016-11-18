@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html ng-app = 'myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="bower_components/angular-route/angular-route.js" charset="utf-8"></script>
+    <script src="bower_components/angular-messages/angular-messages.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      console.log(angular);
+      var myApp = angular.module('myApp', ['ngRoute', 'ngMessages']);
+      myApp.config(function ($routeProvider) {
+        $routeProvider
+          .when('/',{
+            templateUrl: 'partials/players_partial.html',
+          })
+          .when('/players',{
+            templateUrl: 'partials/players_partial.html',
+          })
+          .when('/teams',{
+            templateUrl: 'partials/teams_partial.html',
+          })
+          .when('/associations',{
+            templateUrl: 'partials/associations_partial.html',
+          })
+          .otherwise({
+            redirectTo: '/'
+          });
+      });
+
+      //TEAM CONTROLLER///
+
+      myApp.controller('teamsController', function ($scope, teamsFactory) {
+        console.log('loaded teamsController');
+        $scope.allTeams = []
+
+        $scope.addTeam = function () {
+          console.log('click me');
+          console.log($scope.teamName);
+          teamsFactory.addTeam($scope.teamName)
+          $scope.teamName = '';
+        }
+
+        $scope.deleteTeam = function (idx) {
+          console.log('click me' +idx+ '!!');
+          teamsFactory.deleteTeam($scope.teamName)
+        }
+
+        teamsFactory.getTeams(function (result) {
+          $scope.allTeams = result;
+        })
+
+
+      })
+
+      //TEAM FACTORY//
+
+      myApp.factory('teamsFactory', function () {
+        var factory = {};
+        var teams = [];
+
+        factory.addTeam = function (team) {
+          teams.push(team)
+          console.log(teams);
+        }
+
+        factory.deleteTeam = function (idx) {
+          teams.splice(idx,1)
+        }
+
+        factory.getTeams = function (callback) {
+          callback(teams)
+        }
+
+        return factory
+      })
+
+      //PLAYERS CONTROLLER//
+
+      myApp.controller('playersController', function ($scope, playersFactory) {
+        console.log('loaded playersController');
+        $scope.allPlayers = []
+
+        $scope.addplayer = function () {
+          console.log('click me');
+          console.log($scope.playerName);
+          playersFactory.addplayer($scope.playerName)
+          $scope.playerName = '';
+        }
+
+        $scope.deletePlayer = function (idx) {
+          console.log('click me' +idx+ '!!');
+          playersFactory.deletePlayer($scope.playerName)
+        }
+
+        playersFactory.getPlayers(function (result) {
+          $scope.allPlayers = result;
+        })
+      })
+
+      //PLAYERS FACTORY///
+
+      myApp.factory('playersFactory', function () {
+        var factory = {};
+        var players = [];
+
+        factory.addplayer = function (player) {
+          players.push(player)
+          console.log(players);
+        }
+
+        factory.deletePlayer = function (idx) {
+          players.splice(idx,1)
+        }
+
+        factory.getPlayers = function (callback) {
+          callback(players)
+        }
+
+        return factory;
+      })
+
+      //ASSOCIATION CONTROLLER//
+
+      myApp.controller('associationsController',function ($scope,teamsFactory,playersFactory, associationsFactory) {
+        console.log('loaded associationsController');
+        $scope.allPlayers = [];
+        $scope.allTeams = [];
+        $scope.allAssociation = [];
+
+        playersFactory.getPlayers(function (result) {
+          $scope.allPlayers = result;
+        })
+
+        teamsFactory.getTeams(function (result) {
+          $scope.allTeams = result;
+        })
+
+        associationsFactory.getAssociation(function (result) {
+          $scope.allAssociation = result;
+        })
+
+        $scope.addAssociation = function () {
+          console.log('click me');
+          console.log($scope.newAssociation);
+          associationsFactory.addAssociation($scope.newAssociation)
+          $scope.newAssociation = {};
+        }
+      })
+
+      //////////associations factory//////////////
+
+      myApp.factory('associationsFactory', function () {
+        var factory = {}
+        var associations = []
+
+        factory.addAssociation = function (association) {
+          associations.push(association)
+        }
+
+        factory.getAssociation = function (callback) {
+          callback(associations)
+        }
+
+        return factory
+      })
+
+    </script>
+
+  </head>
+  <body>
+    <h1>Players and Associations Demo</h1>
+    <a href="#/players">Players</a> | <a href="#/teams">Teams</a> | <a href="#/associations">Associations</a>
+    <div ng-view = ''>
+
+    </div>
+  </body>
+</html>

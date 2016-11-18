@@ -1,0 +1,19 @@
+<div ng-controller='usersController as UC'>
+  {{UC.myUser.name}}
+  <button ng-click = 'UC.logout'>Logout</button>
+  <div ng-controller = 'messagesController as MC'>
+    {{MC.ourMessages}}
+    <div ng-repeat = 'message in MC.ourMessages.user._messages'>
+      <h3>{{message.message}} - {{UC.myUser.name}}</h3>
+    </div>
+    <form name = 'messageForm'>
+      <textarea name="message" rows="8" cols="40" ng-model = 'MC.message.message'></textarea>
+      <button ng-click = 'MC.createMessage()'>Create Message</button>
+    </form>
+    <h1>Messages!</h1>
+    <div ng-repeat = 'message in MC.messages.messages'>
+      <h3>{{message.message}} - {{message._user.name}}</h3>
+    </div>
+    <button ng-click = 'MC.myMessages(UC.myUser)'>Show Message</button>
+  </div>
+</div>

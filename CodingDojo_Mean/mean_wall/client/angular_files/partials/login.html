@@ -1,0 +1,14 @@
+<div ng-controller = 'usersController as UC'>
+  {{UC}}
+  <h1>Enter Username to continue:</h1>
+  <form name = logForm>
+    Name: <input type="text" name="username" ng-model = 'UC.users.username' ng-minlength = '2' ng-maxlength = '256' required>
+    <button ng-click = 'UC.login()' ng-disabled = 'logForm.$invalid'>Login</button>
+  </form>
+
+  <div ng-messages = 'logForm.username.$error' style = 'color:marron' role = 'alert' ng-if = 'logForm.username.$touched'>
+    <div ng-message = 'required'>You did not enter an username</div>
+    <div ng-message = 'minlength'>Your username is too short</div>
+    <div ng-message = 'maxlength'>Your username is too long</div>
+  </div>
+</div >

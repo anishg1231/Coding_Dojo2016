@@ -1,0 +1,9 @@
+<div ng-controller = 'editController as EC'>
+  <h1>Edit new Friends</h1>
+    {{EC}}
+    <form>
+      Friend's First Name: <input type="text" name="f_name" ng-model = 'NC.editFriend.f_name'>
+      Friends's Last Name: <input type="text" name="l_name" ng-model = 'NC.editFriend.l_name'>
+      <input type="submit" value="Update Friend" ng-click = 'NC.update()'>
+    </form>
+</div>
