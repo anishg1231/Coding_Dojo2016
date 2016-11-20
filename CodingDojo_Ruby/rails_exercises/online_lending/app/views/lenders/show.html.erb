@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lender Page</title>
+</head>
+<body>
+  <a href="/">Logout</a>
+  <h4>Name:</h4>
+  <h4>Account Balance:</h4><br>
+  <h1>List of people in need of help:</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Need Money for</th>
+        <th>Reason for Loan</th>
+        <th>Amount Needed</th>
+        <th>Amount Raised</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @borrowers.each do |borrower|%>
+      <tr>
+        <td><%= borrower.first_name%> <%= borrower.last_name%></td>
+        <td><%= borrower.purpose%></td>
+        <td><%= borrower.description%>
+        <td><%= borrower.money%></td>
+        <td><%= borrower.raised%></td>
+        <td>
+          <form action="/histories" method="post">
+            <input type="hidden" name="borrower_id" value="<%=borrower.id%>">
+            <input type="text" name="amount">
+            <input type="button" value="Lend">
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h1>List of People you lend money to:</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Need Money for</th>
+        <th>Reason for Loan</th>
+        <th>Amount Needed</th>
+        <th>Amount Raised</th>
+        <th>Amount Lent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lender.borrowers.each do |borrower| %>
+      <tr>
+        <td><%= borrower.first_name%><%= borrower.last_name%></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
+</html>
