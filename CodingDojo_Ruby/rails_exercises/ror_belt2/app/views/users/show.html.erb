@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Music Hub</title>
+  </head>
+  <body>
+    <a href="/songs">Dashboard</a> | <a href="/">Logout</a>
+    <h2><%=@user.first_name%> <%=@user.last_name%> Playlist</h2><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Title</th>
+          <th>Times Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%=@user.playlist.song.artist%></td>
+          <td><%=@user.playlist.song.title%></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
