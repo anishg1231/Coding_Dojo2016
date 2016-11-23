@@ -29,8 +29,9 @@
         <td><%= borrower.money%></td>
         <td><%= borrower.raised%></td>
         <td>
-          <form action="/histories" method="post">
-            <input type="hidden" name="borrower_id" value="<%=borrower.id%>">
+          <form action="/histories/<%=borrower.id%>" method="post">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input type="hidden" name="borrower_id">
             <input type="text" name="amount">
             <input type="button" value="Lend">
           </form>

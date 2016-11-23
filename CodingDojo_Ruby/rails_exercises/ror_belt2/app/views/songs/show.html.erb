@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/songs">Dashboard</a> | <a href="/">Logout</a>
+    <h3>Other who added <%= @song.artist.capitalize%>- <%= @song.title.capitalize%></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Times Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@song.playlists.each do |playlist|%>
+        <tr>
+          <td> <a href="/users/<%=@user.id%>"><%=playlist.user.first_name.capitalize%> <%=playlist.user.last_name.capitalize%></a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

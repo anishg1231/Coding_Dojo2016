@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#login'
   post '/login_borrower' => 'sessions#login_borrower'
   root 'lenders#new'
-  post '/histories' => 'histories#create'
+  post '/histories/:id' => 'histories#create'
   resources :lenders
 
   resources :borrowers
