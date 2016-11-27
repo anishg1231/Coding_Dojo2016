@@ -1,8 +1,7 @@
-
-#
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: ubuntu
   pool: 5
 
 development:
@@ -17,5 +16,4 @@ test:
 production:
   <<: *default
   database: bright_ideas_production
-  username: bright_ideas
   password: <%= ENV['BRIGHT_IDEAS_DATABASE_PASSWORD'] %>
