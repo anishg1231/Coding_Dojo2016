@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/ideas">Bright Ideas</a> | <a href="/logout" data-method = "delete">Logout</a><br>
+    <div>
+      <br>
+      <%=@each_idea.user.alias%> says:<br>
+      <textarea rows="4" cols="40"><%=@each_idea.idea%></textarea>
+    </div>
+    <h3>People who like this Post:</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Alias</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@each_idea.liked_users.each do |each_user|%>
+        <tr>
+          <td> <a href="/users/<%=each_user.id%>"><%=each_user.alias%></a></td>
+          <td><%=each_user.name%></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </body>
+</html>

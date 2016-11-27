@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/ideas">Bright Ideas</a> | <a href="/logout" data-method = "delete">Logout</a>
+    <h2>Name:<%=@user.name%></h2>
+    <h2>Alias:<%=@user.alias%></h2>
+    <h2>Email:<%=@user.email%></h2>
+    <p>
+      _________________________________________________________________________
+    </p>
+    <h2>Total Number of Post: <%=@user.ideas.count%></h2>
+    <h2>Total Number of Likes: <%=@user.likes.count%></h2>
+  </body>
+</html>

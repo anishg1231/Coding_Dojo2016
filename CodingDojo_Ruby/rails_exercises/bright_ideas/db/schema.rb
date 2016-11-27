@@ -11,30 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116215930) do
+ActiveRecord::Schema.define(version: 20161127204106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "likes", force: true do |t|
+  create_table "ideas", force: true do |t|
+    t.string   "idea"
     t.integer  "user_id"
-    t.integer  "secret_id"
-    t.integer  "like_count", default: 0
-    t.boolean  "like",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "secrets", force: true do |t|
+  add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
+
+  create_table "likes", force: true do |t|
+    t.integer  "like_count"
     t.integer  "user_id"
-    t.string   "messages"
+    t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "likes", ["idea_id"], name: "index_likes_on_idea_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
+    t.string   "alias"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"

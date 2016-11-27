@@ -1,0 +1,21 @@
+
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: bright_ideas_development
+
+
+test:
+  <<: *default
+  database: bright_ideas_test
+
+production:
+  <<: *default
+  database: bright_ideas_production
+  username: bright_ideas
+  password: <%= ENV['BRIGHT_IDEAS_DATABASE_PASSWORD'] %>
