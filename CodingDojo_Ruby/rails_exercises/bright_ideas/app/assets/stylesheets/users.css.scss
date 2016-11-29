@@ -1,3 +1,29 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+  width: auto;
+  height: 1000px;
+  background-image: url("bulbs.jpg");
+  background-size: auto 1000px;
+  background-repeat: no-repeat;
+}
+
+.title{
+  color: yellow;
+  text-align: center;
+}
+
+.form-group{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3{
+  color: white;
+}
+
+span{
+  color: yellow;
+}
