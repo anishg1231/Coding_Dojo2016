@@ -1,42 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login/Registration</title>
-  </head>
-  <body>
-    <h1>Register</h1>
-    <form action="/users" method="post">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/users.css.scss">
+  <title>Login/Registration</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <h1>Bright Ideas</h1>
+    </div>
+    <h3>Register</h3>
+    <form class="form-horizontal" action="/users" method="post">
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      <label>Name:</label><br>
-      <input type="text" name="name" ><br>
-
-      <label>Alias:</label><br>
-      <input type="text" name="alias" ><br>
-
-      <label>Email:</label><br>
-      <input type="email" name="email" ><br>
-
-      <label>Password:</label><br>
-      <input type="password" name="password" ><br>
-
-      <label>Password Confirmation:</label><br>
-      <input type="password" name="password_confirmation" ><br>
-
-      <input type="submit" value="Register" >
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Name</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="name" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Alias</span></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="alias" placeholder="Alias">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Email</span></label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Password</span></label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Password Confirmation</span></label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" name="password_confirmation" placeholder="Password Confirmation">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </div>
     </form>
 
-    <h1>Login</h1>
-    <form action="/login" method="post">
+    <h3>Login</h3>
+    <form class="form-horizontal" action="/login" method="post">
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-
-      <label>Email:</label><br>
-      <input type="email" name="email"><br>
-
-      <label>Password:</label><br>
-      <input type="password" name="password"><br>
-
-      <input type="submit" value="Login">
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Email</span></label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span>Password</span></label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </div>
     </form>
 
     <% if flash[:errors] %>
@@ -44,5 +77,7 @@
         <p><%= err %></p>
       <% end %>
     <% end %>
-  </body>
+
+  </div>
+</body>
 </html>
