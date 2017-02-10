@@ -22,7 +22,7 @@ var server = http.createServer(function(request, response){
     })
   }
   else if(request.url === '/ninja'){
-    fs.readFile('views/images/Ninja.png', 'utf8', function (errors, contents) {
+    fs.readFile('views/images/Ninja.png', function (errors, contents) {
       response.writeHead(200,{'Content-Type': 'image/png'});
       response.write(contents);
       response.end();
