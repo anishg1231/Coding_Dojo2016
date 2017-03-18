@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/ideas.css.scss">
+
+  <title>Bright Ideas</title>
+</head>
+<body>
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Bright Ideas</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a> Hi, <%= current_user.alias %>!</a></li>
+        <li><a href="/logout" data-method="delete"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <form action="/ideas" method="post">
+    <div class="form-group">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <textarea class="form-control" name="new_idea" rows="5" cols="40"></textarea><br>
+      <input class="btn btn-default" type="submit" placeholder="Type your idea here..." value="Idea!">
+    </div>
+  </form>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |err| %>
+      <p><%= err %></p>
+    <% end %>
+  <% end %>
+
+  <% @ideas.each do |each_idea| %>
+  <div>
+    <br><br>
+    <a href="/users/<%=each_idea.user_id%>"><%= each_idea.user.alias %></a><span> says:</span><br>
+    <textarea rows="5" cols="40"><%= each_idea.idea%></textarea>
+    <%if each_idea.user_id == current_user.id%>
+    <a href="/ideas/<%=each_idea.id%>" data-method = "delete">Delete</a>
+    <%end%>
+    <form action="/likes" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="hidden" name="idea_id" value="<%=each_idea.id%>">
+      <input class="btn btn-default" type="submit" value="Like">
+    </form>
+    <a href="/ideas/<%=each_idea.id%>"><%=each_idea.likes.count%> people</a><span> like this</span> <br>
+  </div>
+  <%end%>
+</div>
+</body>
+</html>
