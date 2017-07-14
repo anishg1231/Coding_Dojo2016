@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^projects$', views.projects),
     url(r'^about$', views.about),
     url(r'^testimonials$', views.testimonials),
+    url(r'^new_user$', views.create)
 ]
