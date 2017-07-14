@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
@@ -12,3 +12,14 @@ def about(request):
 
 def testimonials(request):
     return render(request,'realPortolio/testimonials.html')
+
+def create(request):
+    if request.method == 'POST':
+        print '*' * 10
+        print request.POST
+        print request.method
+        print '*' * 10
+        request.session['name'] = request.POST['first_name']
+        return redirect('/')
+    else:
+        return render(request,'realPortolio/projects.html')
