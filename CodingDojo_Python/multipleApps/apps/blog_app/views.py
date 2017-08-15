@@ -8,8 +8,19 @@ def new(request):
     return HttpResponse("placeholder to display a new form to create a new blog")
 
 def create(request):
-    response = ("Create new blog")
-    return redirect('/blogs', response)
+    if request.method == "POST":
+        print "*" * 50
+        print request.POST
+        print request.method
+        print request.POST['name']
+        print request.POST['desc']
+        request.session['name'] = "test"
+        print "*" * 50
+        response = ("Create new blog")
+        return redirect("/", response)
+    else:
+        return redirect("/")
+
 
 def show(request, blog_id):
     print blog_id
