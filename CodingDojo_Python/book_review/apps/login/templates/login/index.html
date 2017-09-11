@@ -7,14 +7,13 @@
     {% load staticfiles %}
     <link href="{% static 'login/style.css' %}" rel="stylesheet">
     <title>Welcome</title>
-
     <!-- BootStrap CSS  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
   </head>
-  <body>
+  <body background = "https://static.pexels.com/photos/516663/pexels-photo-516663.jpeg">
     <div class="container">
-      <h1>Welcome to Book Review!</h1><br>
+      <h1>Book Review!</h1><br>
 
       <form class="form-signin" action="/register" method="post">{% csrf_token %}
 
