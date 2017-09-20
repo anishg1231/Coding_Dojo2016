@@ -34,7 +34,7 @@
       $scope.addUser = function () {
         console.log('click');
         userFactory.addUser($scope.newUser)
-        $scope.newUser = '';
+        // $scope.newUser = '';
       }
       userFactory.getUser(function (result) {
         $scope.allUser =  result
@@ -61,8 +61,6 @@
       factory.delete = function (idx) {
         users.splice(idx,1)
       }
-
-
 
       return factory
     })
