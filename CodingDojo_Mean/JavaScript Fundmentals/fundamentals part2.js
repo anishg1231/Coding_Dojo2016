@@ -98,46 +98,27 @@ var objects = {
   var person = {
     name: "Anish",
     distance_traveled : 0
+    // say_name - should alert the object’s name property
     say_name : function () {
       console.log(person.name);
     },
+    // say_something - have it accept a parameter. This function should then say for example “{{your name}} says ‘I am cool’” if you pass ‘I am cool’ as an argument to this method.
     say_something : function (phrase) {
       console.log(person.name + str);
     },
+    // walk - have it alert for example “{{your name}} is walking” and increase distance_traveled by 3
     walk: function () {
       person.distance_traveled += 3
       console.log(person.name + 'is walking');
     },
+    // run - have it alert for example “{{your name}} is running” and increase distance_traveled by 10
     run: function () {
       person.distance_traveled += 10
       console.log(person.name + 'is running');
     },
+    // crawl - have it alert for example “{{your name}} is crawling” and increase distance_traveled by 1
     crawl: function () {
       person.distance_traveled +=1
       console.log(person.name = 'is crawling');
     },
   }
-  // say_name - should alert the object’s name property
-
-
-
-
-
-  // say_something - have it accept a parameter. This function should then say for example “{{your name}} says ‘I am cool’” if you pass ‘I am cool’ as an argument to this method.
-
-
-
-  // walk - have it alert for example “{{your name}} is walking” and increase distance_traveled by 3
-
-
-
-
-
-
-  // run - have it alert for example “{{your name}} is running” and increase distance_traveled by 10
-
-
-
-
-
-  // crawl - have it alert for example “{{your name}} is crawling” and increase distance_traveled by 1
