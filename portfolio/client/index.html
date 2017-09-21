@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Anish Gheewala</title>
+  <link rel="stylesheet" href="angular_files/static/style.css">
+  <link rel="stylesheet" href="materialize/bin/materialize.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="jquery/dist/jquery.min.js" charset="utf-8"></script>
+  <script src="angular/angular.js" charset="utf-8"></script>
+  <script src="angular-messages/angular-messages.js" charset="utf-8"></script>
+  <script src="angular-route/angular-route.js" charset="utf-8"></script>
+  <script src="materialize/bin/materialize.js" charset="utf-8"></script>
+  <script src="angular_files/app.js" charset="utf-8"></script>
+  <script src="angular_files/routes/angular_routes.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $(".button-collapse").sideNav();
+    $('.parallax').parallax();
+    $('.scrollspy').scrollSpy();
+    $('.carousel').carousel();
+
+    var from,first_name,last_name,email,number,message;
+    $("#send_email").click(function(){
+      first_name=$("#first_name").val();
+      last_name=$("#last_name").val();
+      email=$("#email").val();
+      number=$("#number").val();
+      message=$("#message").val();
+      data = {first_name:first_name, last_name:last_name, email:email, number:number, message:message}
+      console.log(data)
+      $("span#message").text("Sending E-mail...Please wait");
+      $.post("http://localhost:8000/send",data,function(data){
+        if(data=="sent")
+        {
+          $("span#message").empty().html("<p>Email has been sent.</p>");
+        }
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+  $('body').css('display', 'none');
+  $(document).ready(function() {
+    $('body').fadeIn(1000)
+  });
+  </script>
+  <nav>
+    <div class="nav-wrapper black">
+      <a id="logo" href="#!" class="brand-logo">AG</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-red" href="#aboutMe">HOME</a></li>
+        <li><a class="waves-effect waves-red" href="#aboutMe">ABOUT ME</a></li>
+        <li><a class="waves-effect waves-red" href="#projects">PROJECTS</a></li>
+        <li><a class="waves-effect waves-red" href="#contact">CONTACT</a></li>
+        <li><a class="waves-effect waves-red" href="https://www.dropbox.com/scl/fi/id8fslwrfgz8ovwu77pq4/AG%20FullStack%20_%20Resume.pdf?dl=0&oref=e&r=AAXS6sSSGoUVuFNy1_EoWGGIh_2C7a2aQFAdWyWBZBx1OThyuk4aq7ZY4Tuc8gtoQ5yYdVIyDvCuENSEPHlkrduLYft4UCTy91DaRxNaVeN4CuNjZW2m6wbO8hc6BZ7WrFFxqp77eHRZocXKWmmRiGe1RbcUMJVpE3FQpYsOKehUVA&sm=1">RESUME</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a class="waves-effect waves-red" href="#aboutMe">HOME</a></li>
+        <li><a class="waves-effect waves-red" href="#aboutMe">ABOUT ME</a></li>
+        <li><a class="waves-effect waves-red" href="#projects">PROJECTS</a></li>
+        <li><a class="waves-effect waves-red" href="#contact">CONTACT</a></li>
+        <li><a href="https://www.dropbox.com/scl/fi/id8fslwrfgz8ovwu77pq4/AG%20FullStack%20_%20Resume.pdf?dl=0&oref=e&r=AAXS6sSSGoUVuFNy1_EoWGGIh_2C7a2aQFAdWyWBZBx1OThyuk4aq7ZY4Tuc8gtoQ5yYdVIyDvCuENSEPHlkrduLYft4UCTy91DaRxNaVeN4CuNjZW2m6wbO8hc6BZ7WrFFxqp77eHRZocXKWmmRiGe1RbcUMJVpE3FQpYsOKehUVA&sm=1">RESUME</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="parallax-container">
+    <div class="parallax"><img src="angular_files/static/images/skyline2.jpg"></div>
+    <div class="intro">
+      <img src="angular_files/static/images/dojophoto.jpg" alt="" class="circle responsive-img">
+    </div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <div id="aboutMe" class="section scrollspy">
+        <h2 class="header">About Me</h2>
+        <p class="grey-text text-darken-3 lighten-3"> Hello! My name is Anish Gheewala. I was first exposed to programming in high school where I took a basic C++ course. To my surprise, I was able to make something from nothing within a matter of hours. It was truly rewarding and eye opening for a young man. Sadly, during college I did not take the path of become a programmer, but received a degree in business management. In addition, I was worked at Walgreens, but after several years it dawned on me that I could not work retail any more. I needed to do something. <br><br> The saying goes that nothing worth having is easy and it isn’t. Over a year ago, I decided to teach myself basic HTML/CSS, while working as a full time store manger.  Trust me when I say that some nights I just wanted to give up or say “there is always tomorrow.” However, the will I had to become a programmer was stronger then the desire to sleep sometimes. Every night, even if it was just a few hours, I would come home and build something or even learn something new. After accomplishing 100 plus hours learning HTML/CSS, I wanted to learn more! I tried teaching myself Ruby to see if I could learn more difficult languages, and I was able to learn the basics. At that point I knew programming was something I wanted to do and to make it my career. <br><br> I started to explore different options that’ll help me transition into a Software Developer and took my time to research different boot camps that was the best fit for me.  I choose Coding Dojo, where the program allowed me to learn three Full Stack in fourteen week. I’ve learned Python with Django, MEAN (which included MongoDB, Express, AngularJS, and Node), and lastly Ruby/Ruby on Rails. Also, the daily algorithm practice on whiteboards at the Dojo made me a better problem-solver and thinker.</p>
+      </div>
+      <div id="social-icons">
+        <a href="https://www.linkedin.com/in/anishgheewala/"><img src="angular_files/static/images/linkedin-box.png" width="48" height="48" alt="LinkedIn" /></a>
+        <a href="https://github.com/anishg1231/Coding_Dojo2016"><img src="angular_files/static/images/github-box.png" width="48" height="48" alt="Facebook" /></a>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="angular_files/static/images/train.jpg"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <div id="projects" class="section scrollspy">
+        <h2 class="header">Projects</h2>
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card  blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Bright Ideas App</span>
+                <p>Idea tracking app that allows users to store, score and access records.</p>
+                <ul>
+                  <li>Created login and registration with validation for multiple users.</li>
+                  <li>Scored records based on number of user likes.</li>
+                  <li>Allowed user to update/modify their record</li>
+                </ul>
+                <p>Technologies: Ruby on Rails and PostgreSQL, Bootstrap</p>
+              </div>
+              <div class="card-action">
+                <a class="links" href="https://github.com/anishg1231/Coding_Dojo2016/tree/master/CodingDojo_Ruby/rails_exercises/bright_ideas">Source Code</a>
+                <a class="links" href="#">Live Site</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">More Projects Coming!</span>
+              </div>
+              <div class="card-action">
+                <a href="#">Source Code</a>
+                <a href="#">Live Site</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">ChatRoom App</span>
+                <p>Web app that allows users to chat to other users similar to Slack.</p>
+                <ul>
+                  <li>Created login and registration with validation for multiple users.</li>
+                  <li>Created real time broadcasting events.</li>
+                  <li>Adding/Deleting members from chat rooms.</li>
+                  <li>Adding/Deleting chat rooms.</li>
+                  <li>Adding Emoji</li>
+                </ul>
+                <p>Technologies: JavaScript, Angular, Express, Node, PostgreSQL, SocketIO, Bootstrap</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/Bradford-Loesch/TADojoChat">Source Code</a>
+                <a href="#">Live Site</a>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">More Projects Coming!</span>
+              </div>
+              <div class="card-action">
+                <a href="#">Source Code</a>
+                <a href="#">Live Site</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="angular_files/static/images/contact1.jpg"></div>
+    <div id="contact" class="section scrollspy">
+      <h2 class="contactText">Contact Me</h2>
+      <div class="row">
+        <form class="form" name="contactForm" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" type="text" name="first_name" ng-model="users.first_name" class="validate" ng-minlength="2" ng-maxlength="20" required>
+              <label for="first_name">First Name</label>
+              <div ng-messages="contactForm.first_name.$error" style="color:red" role="alert" ng-if='contactForm.first_name.$touched' ng-messages-multiple>
+                <div ng-message="required">You did not enter a First Name</div>
+                <div ng-message="minlength">Your First Name is too short</div>
+                <div ng-message="maxlength">Your First Name is too long</div>
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" name="last_name" ng-model="users.last_name" class="validate" ng-minlength="2" ng-maxlength="20" required>
+              <label for="last_name">Last Name</label>
+              <div ng-messages="contactForm.last_name.$error" style="color:red" role="alert" ng-if='contactForm.last_name.$touched' ng-messages-multiple>
+                <div ng-message="required">You did not enter a Last Name</div>
+                <div ng-message="minlength">Your Last Name is too short</div>
+                <div ng-message="maxlength">Your Last Name is too long</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="email" type="email" name="email" ng-model="users.email" class="validate" ng-minlength="2" ng-maxlength="100" required>
+              <label for="email">Email</label>
+              <div ng-messages="contactForm.email.$error" style="color:red" role="alert" ng-if='contactForm.email.$touched' ng-messages-multiple>
+                <div ng-message="required">You did not enter a Email</div>
+                <div ng-message="minlength">Your Email is too short</div>
+                <div ng-message="maxlength">Your Email is too long</div>
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <input id="number" type="number" name="number" ng-model="users.number" class="validate" ng-minlenght="10" ng-maxlength="16" required>
+              <label for="number">Phone</label>
+              <div ng-messages="contactForm.number.$error" style="color:red" role="alert" ng-if='contactForm.number.$touched' ng-messages-multiple>
+                <div ng-message="required">You did not enter a Phone Number</div>
+                <div ng-message="minlength">Your Phone Number is too short</div>
+                <div ng-message="maxlength">Your Phone Number is too long</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <form class="form" class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="message" name="message" ng-model="users.message" class="materialize-textarea" ng-minlength="2" ng-maxlength="256" required></textarea>
+                  <label for="message">Message</label>
+                  <div ng-messages="contactForm.message.$error" style="color:red" role="alert" ng-if='contactForm.message.$touched' ng-messages-multiple>
+                    <div ng-message="required">You did not enter a Message</div>
+                    <div ng-message="minlength">Your Message is too short</div>
+                    <div ng-message="maxlength">Your Message is too long</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="submit">
+            <button id="send_email" class="btn waves-effect waves-red" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+            <span id="message" style="color:white;"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#send_email").click(function(){
+    /* Single line Reset function executes on click of Reset Button */
+    $(".form")[0].reset();
+  });});
+  // create the back to top button
+  $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+  var amountScrolled = 300;
+  $(window).scroll(function() {
+    if ( $(window).scrollTop() > amountScrolled ) {
+      $('a.back-to-top').fadeIn('slow');
+    } else {
+      $('a.back-to-top').fadeOut('slow');
+    }
+  });
+  $('a.back-to-top, a.simple-back-to-top').click(function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 700);
+    return false;
+  });
+  </script>
+</body>
+</html>

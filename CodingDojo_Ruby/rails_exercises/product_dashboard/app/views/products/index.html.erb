@@ -22,9 +22,21 @@
           <td><%= product.description%></td>
           <td><%= product.pricing%></td>
           <td>
-            <a href="/products/<%= product.id%>">Show</a> |
-            <a href="/products/<%= product.id%>/edit">Edit</a>
+            <form action="/products/<%=product.id%>" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+              <button>Show</button>
+            </form>
 
+            <form action="/products/<%=product.id%>" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+              <button>Edit</button>
+            </form>
+
+            <form action="/products/<%= product.id%>" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+              <input type="hidden" name="_method" value="delete">
+              <button>Delete</button>
+            </form>
           </td>
         </tr>
         <% end %>
