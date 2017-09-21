@@ -1,0 +1,82 @@
+div.parallax-container {
+    position: relative;
+    overflow: hidden;
+    height: 60em;
+    width: 100%;
+}
+.header{
+  text-align: center;
+}
+
+.intro{
+  color: white;
+  text-align: center;
+  font-family: serif;
+  margin-top: 150px;
+}
+.contactText{
+  color: white;
+  text-align: center;
+  font-family: serif;;
+}
+#first_name, #last_name, #email, #number, #message{
+  color: white;
+}
+
+div#social-icons{
+  text-align: center;
+}
+
+div#submit{
+  margin-left: 22px
+}
+
+img.circle.responsive-img{
+  max-width: 100%;
+  height: auto;
+  width: 265px;
+  margin-top: -100px;
+}
+
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+  background: gray url("images/up-arrow.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+a:hover.back-to-top {
+	background-color: #ffab40;
+}
+
+#logo{
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -transition: -transform 0.3s ease-out;
+}
+
+a:hover#logo{
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -transition: rotate(360deg);
+  color: #ffab40;
+}
+
+.card .card-content {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+    overflow: auto;
+    height: 175px;
+}
+
+div.ng-scope{
+  margin-left: 11px;
+  margin-top: 10px;
+}

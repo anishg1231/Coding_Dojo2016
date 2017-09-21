@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Reviews</title>
+
+    <!-- BootStrap CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/books">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'review:add' %}">Add Book and Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login:logout' %}">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="starter-template">
+          <h1><strong style="color:red">User Alias: </strong>{{user.alias}}</h1>
+          <h2><strong style="color:red">Name: </strong> {{user.name}}</h2>
+          <h2><strong style="color:red">Email: </strong> {{user.email}}</h2>
+          <h2><strong style="color:red">Total Reviews: </strong> {{user.reviews_left.all.count}}</h2>
+          <hr>
+          <h1>Posted Reviews on the Folowing Books</h1>
+          {% for book in unique_book_reviews %}
+          <h3><a href="/books/{{book.id}}">{{book.title}}</a></h3>
+          {% endfor %}
+        </div>
+      </div><!-- /.container -->
+
+
+  </body>
+</html>
