@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/posts.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="/ideas" class="navbar-brand">Bright Ideas</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a> Hi, <%= current_user.alias %>!</a></li>
+            <li><a href="/logout" data-method="delete"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="idea_name">
+        <br>
+        <%=@each_idea.user.alias%> says:<br>
+      </div>
+        <textarea rows="4" cols="65"><%=@each_idea.idea%></textarea>
+      <h3>People who like this Post:</h3>
+      <table class="table">
+        <thead>
+          <tr id="table_names">
+            <th>Alias</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@each_idea.liked_users.each do |each_user|%>
+          <tr>
+            <td> <a href="/users/<%=each_user.id%>"><%=each_user.alias%></a></td>
+            <td id="name"><%=each_user.name%></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

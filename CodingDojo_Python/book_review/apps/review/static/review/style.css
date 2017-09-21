@@ -1,0 +1,10 @@
+div.col-sm-8.blog-main{
+  max-height: 500px;
+  overflow-y:scroll;
+}
+
+div.col-sm-3.offset-sm-1.blog-sidebar{
+  max-height: 500px;
+  overflow-y:scroll;
+
+}
