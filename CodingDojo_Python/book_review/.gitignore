@@ -1,4 +1,4 @@
-djangoEnv
+venv
 *.pyc
 staticfiles
 .env
