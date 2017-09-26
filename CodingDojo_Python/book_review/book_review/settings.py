@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'di7xw_ubc-@tvhzqj1n96096%($lkfi-lr$ursvnz3q0%5n4cx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -120,22 +120,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# new
-
-import dj_database_url
-DATABASES['DEFAULT'] = dj_database_url.config()
-
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARD_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
